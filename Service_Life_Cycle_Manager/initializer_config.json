@@ -1,0 +1,68 @@
+{
+    "Request_Manager":{
+        "port":5000,
+        "vm_name": "VM1",
+        "source_path" : "./AI_and_IoT_Application_Platform",
+        "folder_name" : "Request_Manager",
+        "source": "./Request_Manager",
+        "destination": "~/Request_Manager/"
+    },
+
+    "Authentication_Manager":{
+        "port":5001,
+        "vm_name": "VM2",
+        "source_path" : "./AI_and_IoT_Application_Platform",
+        "folder_name" : "Authentication_Manager",
+        "source": "./Authentication_Manager",
+        "destination": "~/Authentication_Manager/"
+    },
+
+    "Scheduler":{
+        "port":5011,
+        "vm_name": "VM2",
+        "source_path" : "./AI_and_IoT_Application_Platform",
+        "folder_name" : "Scheduler",
+        "source": "./Scheduler",
+        "destination": "~/Scheduler/"
+    },
+    "Deployment_Manager":{
+        "port":5005,
+        "vm_name": "VM3",
+        "source_path" : "./AI_and_IoT_Application_Platform",
+        "folder_name" : "Deployment_Manager",
+        "source": "./Deployment_Manager",
+        "destination": "~/Deployment_Manager/"
+    },
+    "Sensor_Binder":{
+        "port":6005,
+        "vm_name": "VM3",
+        "source_path" : "./AI_and_IoT_Application_Platform",
+        "folder_name" : "Sensor_Binder",
+        "source": "./Sensor_Binder",
+        "destination": "~/Sensor_Binder/"
+    },
+    "Sensor_Manager":{
+        "port":6001,
+        "vm_name": "VM1",
+        "source_path" : "./AI_and_IoT_Application_Platform",
+        "folder_name" : "Sensor_Manager",
+        "source": "./Sensor_Manager",
+        "destination": "~/Sensor_Manager/"
+    },
+    "Notification_Manager":{
+        "port":8765,
+        "vm_name": "VM2",
+        "source_path" : "./AI_and_IoT_Application_Platform",
+        "folder_name" : "Notification_Manager",
+        "source": "./Notification_Manager",
+        "destination": "~/Notification_Manager/"
+    },
+    "Kafka":{
+        "port":6001,
+        "vm_name": "VM1",
+        "source_path" : "./AI_and_IoT_Application_Platform",
+        "folder_name" : "Kafka",
+        "source": "./Kafka",
+        "destination": "~/Kafka/"
+    }
+}

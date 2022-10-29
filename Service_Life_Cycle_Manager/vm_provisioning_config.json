@@ -1,0 +1,18 @@
+{
+    "VM1" : {
+        "VM_NAME" : "IASVM1",
+        "offer": "UbuntuServer",
+        "sku": "18.04-LTS",
+        "nic_name": "VM1",
+        "ip_name":"vm1ip",
+        "ip_config_name":"vm1ipconfig"
+    },
+    "VM2" : {
+        "VM_NAME" : "IASVM2",
+        "offer": "UbuntuServer",
+        "sku": "18.04-LTS",
+        "nic_name": "VM2",
+        "ip_name":"vm2ip",
+        "ip_config_name":"vm2ipconfig"
+    }
+}

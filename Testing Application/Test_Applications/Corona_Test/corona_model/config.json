@@ -1,0 +1,14 @@
+{
+    "Model": {
+        "username": "11",
+        "modelName": "corona_model",
+        "dependencies": [
+            "Flask",
+            "requests",
+            "numpy",
+            "sklearn",
+            "pymongo"
+        ],
+        "inputDataFormat": "float"
+    }
+}

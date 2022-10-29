@@ -1,0 +1,25 @@
+{
+    "Application": {
+        "userName": "11",
+        "appName": "corona_app",
+        "models_used": [
+            "corona_model"
+        ],
+        "sensor": {
+            "temperature_sensor": 1
+        },
+        "dependencies": [
+            "numpy==1.21.5",
+            "Flask",
+            "requests",
+            "kafka-python",
+            "pymongo",
+            "sklearn"
+        ],
+        "filenames": [
+            "app.py",
+            "api.py"
+        ],
+        "entryPoint": "app.py"
+    }
+}

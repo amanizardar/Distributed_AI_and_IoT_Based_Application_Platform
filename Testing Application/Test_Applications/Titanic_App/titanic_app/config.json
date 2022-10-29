@@ -1,0 +1,25 @@
+{
+    "Application": {
+        "userName": "11",
+        "appName": "titanic_predict_app",
+        "models_used": [
+            "titanic_model"
+        ],
+        "sensor": {
+            "light-sensor": 1
+        },
+        "dependencies": [
+            "numpy==1.21.5",
+            "Flask",
+            "requests",
+            "kafka-python",
+            "pymongo",
+            "sklearn"
+        ],
+        "filenames": [
+            "app.py",
+            "api.py"
+        ],
+        "entryPoint": "app.py"
+    }
+}

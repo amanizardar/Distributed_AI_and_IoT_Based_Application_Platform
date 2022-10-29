@@ -1,0 +1,14 @@
+FROM mcr.microsoft.com/azure-cli:latest
+COPY . /app
+WORKDIR /app
+USER root
+RUN apk add --no-cache python3 py3-pip
+RUN pip3 install flask
+RUN pip3 install pymongo
+RUN pip3 install requests
+RUN pip3 install paramiko
+RUN pip install azure-storage-file-share
+
+#CMD python3 initializer.py
+ENTRYPOINT ["python3"]
+CMD ["initializer.py","8000"]
