@@ -1,0 +1,30 @@
+{
+    "VM1" : {
+        "name":"TESTVM1",
+        "group":"IAS_PROJECT",
+        "ip" : "20.233.38.212",
+        "username" : "azureuser",
+        "password" : "@mazingSpiderMan"
+    },
+    "VM2" : {
+        "name":"TESTVM3",
+        "group":"IAS_PROJECT",
+        "ip" : "20.233.33.141",
+        "username" : "azureuser",
+        "password" : "@mazingSpiderMan"
+    },
+    "VM3" : {
+        "name":"TESTVMK",
+        "group":"IAS_PROJECT",
+        "ip" : "20.233.36.78",
+        "username" : "azureuser",
+        "password" : "@mazingSpiderMan"
+    },
+    "VM0" : {
+        "name":"TESTVMK",
+        "group":"IAS_PROJECT",
+        "ip" : "127.0.0.1",
+        "username" : "azureuser",
+        "password" : "@mazingSpiderMan"
+    }
+}

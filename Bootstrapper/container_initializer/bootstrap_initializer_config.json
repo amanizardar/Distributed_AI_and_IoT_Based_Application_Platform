@@ -1,0 +1,10 @@
+{
+    "Service_Life_Cycle_Manager":{
+        "port":8000,
+        "vm_name": "VM1",
+        "source_path" : "./AI_and_IoT_Application_Platform",
+        "folder_name" : "Service_Life_Cycle_Manager",
+        "source": "./Service_Life_Cycle_Manager",
+        "destination": "~/Service_Life_Cycle_Manager/"
+    }
+}

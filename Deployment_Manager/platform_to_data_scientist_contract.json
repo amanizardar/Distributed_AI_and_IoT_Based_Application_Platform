@@ -1,0 +1,24 @@
+{
+    "information": "This file contains information about the requirements needed for creating the model service effectively in the platform.",
+    "requirements": {
+        "model_pickle_file": "The created model should be converted into a pickle file and uploaded onto the platform. The name of this file would be used as the name of the model.",
+        "contract_script_file": "A python script file named Contract.py containing a Contract class with the implementation of the two methods: preprocess and postprocess should also be uploaded.",
+        "config_file": "The config file should contain the model name (which should match the pickle file name and all the required dependencies."
+    },
+    "formats": {
+        "contract_script_file_format": {
+            "content_of_Contract.py": "There should be a class named 'Contract' containing two methods: preprocess and postprocess."
+        },
+        "config_file_format": {
+            "Model": {
+                "username": "<user name>",
+                "modelName": "<modelName(same as the name of the pickle file)>",
+                "dependenices": [
+                    "<dependency1>",
+                    "<dependency2>"
+                ],
+                "inputDataFormat": "string/int/float/object/image/video"
+            }
+        }
+    }
+}

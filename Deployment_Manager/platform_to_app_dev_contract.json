@@ -1,0 +1,85 @@
+{
+    "information": "This file contains information about the requirements needed in this application for it to be used effectively by the platform.",
+    "requirements": {
+        "source_files": "The source files including the dummy_api_script mentioned below should be uploaded in the form of a zip file.",
+        "dummy_api_script": "This needs to be a python script containing dummy api functions that will be used by the app to communicate with the model, sensors and controllers. The platform will replace these dummy functions with their actual implementations after the source files are uploaded. These function calls can be used inside the application for interacting with the models, sensors and controllers and the model name, sensor types and controller types needs to be mentioned in the config file so that they can be binded to these function calls during runtime.",
+        "config_file": "The config file needs to contain the necessary binding and deployment information which are required by the platform.",
+        "contract_file": "A contract file can be uplocaded which has all the nessary information for the user who will use this application"
+    },
+    "formats": {
+        "dummy_api_script_format": {
+            "filename": "api.py",
+            "methods": [
+                {
+                    "name": "getSensorData",
+                    "arguments": [
+                        "sensor_type",
+                        "serial_num",
+                        "api_id"
+                    ],
+                    "description": "This function can be called to consume the sensor data. This function will wait until the sensor data is produced at the producer and obtain the data as soon as it is produced."
+                },
+                {
+                    "name": "preprocess",
+                    "arguments": [
+                        "data",
+                        "model_name"
+                    ],
+                    "description": "This function can be used to preprocess the data before sending it to the predict endpoint."
+                },
+                {
+                    "name": "postprocess",
+                    "arguments": [
+                        "data",
+                        "model_name"
+                    ],
+                    "description": "This function can be used to postprocess the predicted result that is retrieved from the predict endpoint."
+                },
+                {
+                    "name": "predict",
+                    "arguments": [
+                        "data",
+                        "model_name"
+                    ],
+                    "description": "This function can be used to predict the result using the model selected. The name of the model should be passed on to the parameter along with the preprocessed data."
+                },
+                {
+                    "name": "sendControllerData",
+                    "arguments": [
+                        "predicted_data",
+                        "controller_type",
+                        "serial_num"
+                    ],
+                    "description": "This function could be used to send data to a controller."
+                },
+                {
+                    "name": "healthCheck",
+                    "description" : "Health check endpoint"
+                }
+            ]
+        },
+        "config_file_format": {
+            "Application": {
+                "userName" : "<user_name>",
+                "appName": "<Application_Name>",
+                "models_used": [
+                    "<model_name1>",
+                    "<model_name2>"
+                ],
+                "sensor": {
+                    "<sensor_type>": 2 // no. of sensor instances.
+                },
+                "dependencies": [
+                    "<dependency_1>",
+                    "<dependency_2>",
+                    "<dependency_3>"
+                ],
+                "filenames": [
+                    "src_file1",
+                    "src_file2"
+                ],
+                "entryPoint": "<file_name_containing_entrypoint>"
+            }
+        }
+    }
+}

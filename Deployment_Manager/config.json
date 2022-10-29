@@ -1,0 +1,18 @@
+{
+    "Model": {
+        "username": "11",
+        "modelName": "emotion_model",
+        "dependencies": [
+            "Flask",
+            "requests",
+            "numpy",
+            "sklearn",
+            "pymongo",
+            "tensorflow",
+            "dill",
+            "Pillow",
+            "opencv-python"
+        ],
+        "inputDataFormat": "image"
+    }
+}

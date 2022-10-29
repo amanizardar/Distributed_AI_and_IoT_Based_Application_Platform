@@ -1,0 +1,55 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        function show(select)
+        {
+            var r = select.options[select.selectedIndex].getAttribute("id")
+            if(r=="0")
+            {
+                document.getElementById('ds').style.display = 'block';
+                document.getElementById('appd').style.display = 'none';
+            }
+            else
+            {
+                document.getElementById('appd').style.display = 'block';
+                document.getElementById('ds').style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body style="background-color:beige">
+    <center>
+    <form class="form" action = "http://127.0.0.1:5000/submit" method = "POST" enctype = "multipart/form-data">
+        <h3>Select role</h3>
+        <select name="role" id="role" onchange="show(this)">
+            <option value=""selected>Select One</option>
+            <option value="Data Scientist" id="0">Data Scientist</option>
+            <option value="App Developer" id="1">App Developer</option>
+        </select>
+        <div id = "ds" style="display: none;">
+            <h3>Upload model.pkl file</h3>
+            <input type = "file" name = "f1"/>
+            <h3>Upload contract.py file</h3>
+            <input type = "file" name = "f2"/>
+            <h3>Upload config file</h3>
+            <input type = "file" name = "f3"/>
+            <br><br>
+            <input class="btn btn-lg btn-success" type="submit" value="Submit">
+        </div>
+        <div id = "appd" style="display: none;">
+            <h3>Upload all source files</h3>
+            <input type = "file" name = "f4" />
+            <h3>Upload contract.txt file</h3>
+            <input type = "file" name = "f5" />
+            <h3>Upload config file</h3>
+            <input type = "file" name = "f6" />
+            <br><br>
+            <input class="btn btn-lg btn-success" type="submit" value="Submit">
+        </div>
+    </form>
+    </center>
+</body>

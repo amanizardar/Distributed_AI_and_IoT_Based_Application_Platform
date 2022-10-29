@@ -1,0 +1,9 @@
+distutils
+flask
+matplotlib
+paramiko
+time
+os
+requests
+pymongo
+azure_cli

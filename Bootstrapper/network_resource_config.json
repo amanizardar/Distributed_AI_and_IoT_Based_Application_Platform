@@ -1,0 +1,10 @@
+{   
+    "RESOURCE_GROUP_NAME" : "IAS_AZURE_GROUP_TEST",
+    "LOCATION" : "uaenorth",
+    "VNET_NAME" : "IAS_AZURE_VNET_TEST",
+    "SUBNET_NAME"  : "IAS_AZURE_SUBNET_TEST",
+    "IP_NAME" : "IAS_AZURE_IP_TEST",
+    "IP_CONFIG_NAME" : "IAS_AZURE_IPCONFIG_TEST",
+    "NIC_NAME" : "IAS_AZURE_NIC_TEST",
+    "address_prefixes" : ["10.0.0.0/16"]
+}
