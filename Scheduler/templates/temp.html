@@ -1,0 +1,104 @@
+<head>
+  <title>SCHEDULER</title>
+</head>
+  <link rel="stylesheet" href="../static/styles/temp.css">
+  <body>
+  <link rel="stylesheet" href="temp.css">
+  <div class="container">
+      <h1>SCHEDULER</h1>
+      <form action = "http://127.0.0.1:5001/toDB" method ="post">
+          <div class="row">
+              <h4>Account</h4>
+              <div class="input-group input-group-icon">
+                  <input type="text" placeholder="User ID" name = "userID" required />
+                  <div class="input-icon"><i class="fa fa-user"></i></div>
+              </div>
+              <div class="input-group input-group-icon">
+                  <input type="text" placeholder="Application ID" name = "ApplicationID" required />
+                  <div class="input-icon"><i class="fa fa-envelope"></i></div>
+              </div>
+          </div>
+          <h4>Day</h4>
+          <!-- <div class="input-group">
+              <input id="terms" type="checkbox" />
+              <label for="terms">I accept the terms and conditions for signing up to this service, and hereby confirm I
+                  have read the privacy policy.</label>
+          </div> -->
+          
+          <button class="button" style="width:40%;" type="button" id="select-all" onclick="SelectAll()">Select All</button>
+          <!-- <button class="button" style="width:40%;" type="button" id="Repeat" name = "repeat">Repeat</button> -->
+      
+          <div class="input-group">
+              <input id="Monday" type="checkbox" name="Monday">
+              <label for="Monday">Monday</label>
+              <br>
+  
+              <input id="Tuesday" type="checkbox" name="Tuesday">
+              <label for="Tuesday">Tuesday</label>
+              <br>
+  
+              <input id="Wednesday" type="checkbox" name="Wednesday">
+              <label for="Wednesday">Wednesday</label>
+              <br>
+  
+              <input id="Thursday" type="checkbox" name="Thursday">
+              <label for="Thursday">Thursday</label>
+              <br>
+  
+              <input id="Friday" type="checkbox" name="Friday">
+              <label for="Friday">Friday</label>
+              <br>
+  
+              <input id="Saturday" type="checkbox" name="Saturday">
+              <label for="Saturday">Saturday</label>
+              <br>
+  
+              <input id="Sunday" type="checkbox" name="Sunday">
+              <label for="Sunday">Sunday</label>
+              <br>
+  
+          </div>
+
+          <h4>Repeat</h4>
+          <div class="input-group">
+              <input id="Repeat" type="checkbox" name="repeat">
+              <label for="Repeat">Repeat Weekly</label>
+              <br>
+          </div>
+          
+         
+          <br>
+          <h4>Start Time</h4>
+          <div class="input-group input-group-icon">
+  
+              <input type="time" name="StartTime" placeholder="Time" />
+              <div class="input-icon"><i class="fa fa-user"></i></div>
+          </div>
+          <h4>Duration</h4>
+          <div class="input-group input-group-icon">
+              <input type="text" name="Duration" placeholder="Duration (in mins)" />
+              <div class="input-icon"><i class="fa fa-envelope"></i></div>
+          </div>
+  
+          <div>
+              <h4>Upload</h4>
+              <label for="Upload"></label>
+              <input type="file" name="filename">
+              <br>
+              <br>
+  
+              <input class="save" type="submit">
+          </div>
+      </form>
+  </div>
+  <script>
+      function SelectAll() {
+          var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+          console.log(checkboxes)
+          for (var checkbox of checkboxes) {
+            if(checkbox.name !== "repeat")
+              checkbox.checked = true;
+          }
+      }
+  </script>
+  </body>

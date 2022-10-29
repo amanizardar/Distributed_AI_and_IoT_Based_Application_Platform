@@ -1,0 +1,207 @@
+<head>
+    <title>Sensor Configurer</title>
+
+</head>
+<link rel="stylesheet" href="../static/styles/configurer.css">
+
+<body>
+    <!--  ********************************************************************************************** -->
+    <div class="container">
+        <div id="choose_button">
+            <button id="choose_sensor">Choose Sensor</button>
+            <button id="choose_controller">Choose Controller</button>
+        </div>
+        <div id="sensor_part">
+            <!--  ********************************************************************************************** -->
+            <h1>Sensor Configuration</h1>
+
+            <button id="newtypebutton">Add new sensor type</button>
+            <button id="newinstancebutton">Add new instance of existing sensor type</button>
+
+            <div id="newinstance" display="none">
+                <form action="{{URL}}/new_instance" method="POST">
+                    <br>
+                    <br>
+                    <div class="form-group">
+                        <input type="text" name="type">
+                        <label for="input" class="control-label">Sensor Type</label><i class="bar"></i>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" name="location">
+                        <label for="input" class="control-label">Location</label><i class="bar"></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="ip">
+                        <label for="input" class="control-label">IP</label><i class="bar"></i>
+
+                    </div>
+                    <div class="form-group">
+
+                        <input type="text" name="port">
+                        <label for="input" class="control-label">Port</label><i class="bar"></i>
+                    </div>
+                    <input type="hidden" name="username" value="{{ username }}" />
+                    <input type="hidden" name="token" value="{{ token }}" />
+                    <input type="hidden" name="user_type" value="{{ user_type }}" />
+                    <br>
+                    <!-- <input type="submit"> -->
+                    <div class="button-container">
+                        <button type="submit" class="button"><span>Submit</span></button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="newtype">
+                <form action="{{URL}}/new_type" method="post">
+                    <div class="form-group">
+                        <input type="text" name="type">
+                        <label for="input" class="control-label">Sensor Type</label><i class="bar"></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="input_format">
+                        <label for="input" class="control-label">Format</label><i class="bar"></i>
+
+                    </div>
+                    <div class="form-group">
+                        <input type="number" name="data_rate">
+                        <label for="input" class="control-label">Data Rate(in sec)</label><i class="bar"></i>
+                    </div>
+                    <input type="hidden" name="username" value="{{ username }}" />
+                    <input type="hidden" name="token" value="{{ token }}" />
+                    <input type="hidden" name="user_type" value="{{ user_type }}" />
+                    <br>
+                    <!-- <input type="submit"> -->
+                    <div class="button-container">
+                        <button type="submit" class="button"><span>Submit</span></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--  ********************************************************************************************** -->
+        <div id="controller_part">
+            <h1>Controller Configuration</h1>
+
+            <button id="newctrltypebutton">Add new controller type</button>
+            <button id="newctrlinstancebutton">Add new instance of existing controller type</button>
+
+            <div id="newctrlinstance" display="none">
+                <form action="{{URL}}/new_ctrl_instance" method="POST">
+                    <br>
+                    <br>
+                    <div class="form-group">
+                        <input type="text" name="type">
+                        <label for="input" class="control-label">Controller Type</label><i class="bar"></i>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" name="location">
+                        <label for="input" class="control-label">Location</label><i class="bar"></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="ip">
+                        <label for="input" class="control-label">IP</label><i class="bar"></i>
+
+                    </div>
+                    <div class="form-group">
+
+                        <input type="text" name="port">
+                        <label for="input" class="control-label">Port</label><i class="bar"></i>
+                    </div>
+                    <input type="hidden" name="username" value="{{ username }}" />
+                    <input type="hidden" name="token" value="{{ token }}" />
+                    <input type="hidden" name="user_type" value="{{ user_type }}" />
+                    <br>
+                    <!-- <input type="submit"> -->
+                    <div class="button-container">
+                        <button type="submit" class="button"><span>Submit</span></button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="newctrltype">
+                <form action="{{URL}}/new_ctrl_type" method="post">
+                    <div class="form-group">
+                        <input type="text" name="type">
+                        <label for="input" class="control-label">Controller Type</label><i class="bar"></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="input_format">
+                        <label for="input" class="control-label">Format</label><i class="bar"></i>
+
+                    </div>
+                    <div class="form-group">
+                        <input type="number" name="data_rate">
+                        <label for="input" class="control-label">Data Rate(in sec)</label><i class="bar"></i>
+                    </div>
+                    <input type="hidden" name="username" value="{{ username }}" />
+                    <input type="hidden" name="token" value="{{ token }}" />
+                    <input type="hidden" name="user_type" value="{{ user_type }}" />
+                    <br>
+                    <!-- <input type="submit"> -->
+                    <div class="button-container">
+                        <button type="submit" class="button"><span>Submit</span></button>
+                    </div>
+                </form>
+            </div>
+
+            <!--  ********************************************************************************************** -->
+
+        </div>
+    </div>
+
+
+    <!--  ********************************************************************************************** -->
+    <script>
+        const choose_sensor = document.getElementById("choose_sensor")
+        const choose_controller = document.getElementById("choose_controller")
+        const sensor_part = document.getElementById("sensor_part")
+        const controller_part = document.getElementById("controller_part")
+        sensor_part.style.display = "none"
+        controller_part.style.display = "none"
+        choose_sensor.onclick = function() {
+            sensor_part.style.display = "block"
+            controller_part.style.display = "none"
+        }
+        choose_controller.onclick = function() {
+            controller_part.style.display = "block"
+            sensor_part.style.display = "none"
+        }
+
+
+        const targetDiv1 = document.getElementById("newtype");
+        const btn1 = document.getElementById("newtypebutton");
+        const targetDiv2 = document.getElementById("newinstance");
+        const btn2 = document.getElementById("newinstancebutton");
+        targetDiv2.style.display = "none";
+        targetDiv1.style.display = "none";
+        btn1.onclick = function() {
+            targetDiv2.style.display = "none";
+            targetDiv1.style.display = "block";
+        };
+
+
+        btn2.onclick = function() {
+            targetDiv1.style.display = "none";
+            targetDiv2.style.display = "block";
+        };
+
+        const targetDiv1_c = document.getElementById("newctrltype");
+        const btn1_c = document.getElementById("newctrltypebutton");
+        const targetDiv2_c = document.getElementById("newctrlinstance");
+        const btn2_c = document.getElementById("newctrlinstancebutton");
+        targetDiv2_c.style.display = "none";
+        targetDiv1_c.style.display = "none";
+        btn1_c.onclick = function() {
+            targetDiv2_c.style.display = "none";
+            targetDiv1_c.style.display = "block";
+        };
+
+
+        btn2_c.onclick = function() {
+            targetDiv1_c.style.display = "none";
+            targetDiv2_c.style.display = "block";
+        };
+    </script>
+    <!--  ********************************************************************************************** -->
+</body>

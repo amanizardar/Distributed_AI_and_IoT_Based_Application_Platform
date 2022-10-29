@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="{{description}}" />
+    <!-- <link rel="shortcut icon" href="/favicon.ico" /> -->
+  </head>
+
+  <body>
+    <form action="/jsonifyRequest" method="post">
+      {% for i in range(sensor_kinds|length) %} {% for j in
+      range(sensor_count[i]) %} {% set n = '' + sensor_kinds[i] + '_' + (j|string) %}
+      <label>{{n}} location</label>
+      <br />
+      <input type="text" name="{{n}}" />
+      <br />
+      <br />
+      {% endfor %} {% endfor %}
+      <input type="submit" />
+    </form>
+  </body>
+</html>
