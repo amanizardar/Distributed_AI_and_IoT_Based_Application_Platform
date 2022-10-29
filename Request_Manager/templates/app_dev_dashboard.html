@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Datta Able Free Bootstrap 4 Admin Template</title>
+    <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 11]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+  
+    <!-- Favicon icon -->
+    <!-- <link rel="icon" href="../static/assets/images/favicon.ico" type="image/x-icon"> -->
+    <!-- fontawesome icon -->
+    <link rel="stylesheet" href="../static/assets/fonts/fontawesome/css/fontawesome-all.min.css">
+    <!-- animation css -->
+    
+    <!-- vendor css -->
+    <link rel="stylesheet" href="../static/assets/css/style.css">
+
+</head>
+
+<body>
+    <!-- [ Pre-loader ] start -->
+    <div class="loader-bg">
+        <div class="loader-track">
+            <div class="loader-fill"></div>
+        </div>
+    </div>
+   
+    <!-- [ Header ] start -->
+    <header class="navbar pcoded-header navbar-expand-lg navbar-light">
+        <div class="m-header">
+            <a class="mobile-menu" id="mobile-collapse1" href="javascript:"><span></span></a>
+            <a href="index.html" class="b-brand">
+                   <div class="b-bg">
+                       <i class="feather icon-trending-up"></i>
+                   </div>
+                   <span class="b-title">Datta Able</span>
+               </a>
+        </div>
+
+        <a class="mobile-menu" id="mobile-header" href="javascript:">
+            <i class="feather icon-more-horizontal"></i>
+        </a>
+
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li><a href="javascript:" class="full-screen" onclick="javascript:toggleFullScreen()"><i class="feather icon-maximize"></i></a></li>
+                <li class="nav-item dropdown">
+                    <a class="dropdown-toggle" href="javascript:" data-toggle="dropdown">Dashboard</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="javascript:">Action</a></li>
+                        <li><a class="dropdown-item" href="javascript:">Another action</a></li>
+                        <li><a class="dropdown-item" href="javascript:">Something else here</a></li>
+                    </ul>
+                </li>
+              
+            </ul>
+
+        
+            
+        </div>
+        
+    </header>
+    <!-- [ Header ] end -->
+    
+    <!-- [ Main Content ] start -->
+    <div class="pcoded-main-container">
+        <div class="pcoded-wrapper">
+            <div class="pcoded-content row">
+                <div class="pcoded-inner-content col-10">
+                    <!-- [ breadcrumb ] start -->
+                    <p>Welcome {{ username }}</p>
+                    <div ><h3>Deploy New Application</h3></div>
+                    <hr>
+                    <div class="upload custom-file center" >
+                    
+                        <form id="myForm" enctype = "multipart/form-data" action = "/Upload/App" method = "post" >
+                            <div class="row align-items-end">
+                            <p class="col-7">Upload File: <input type = "file" name = "filename" required /></p>
+
+                            <input type="hidden" name="username" value="{{ username }}" />
+                             
+                            <p class="col-3"><input class="btn btn-primary" type = "submit" value = "Upload" /></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </br>
+        </br></br>  
+                <div class= "col-10">
+                    <br>
+                    <br>
+                    <!-- [ breadcrumb ] end -->
+                    <div class="main-body">
+                        <div class="page-wrapper">
+                            <!-- [ Main Content ] start -->
+                            <div class="row">
+                              
+                                <div class="col-12">
+                                    <div class="card Recent-Users">
+                                        <div class="">
+                                            <h3>Uploaded Models And Applications</h3>
+                                        </div>
+                                        <hr>
+                                        <div class="row align-items-end" >
+                                            <div class="table-responsive col-6" style="overflow: hidden;">
+                                                <h4>Apps</h4>
+                                                <table class="table table-hover col-6" style="border-right: 2px solid">
+                                                    <tbody>
+                                                        {% for key in response %}
+        
+                                                        <tr class="unread row" style="padding:1em">
+                                                            <!-- <td><img class="rounded-circle" style="width:40px;" src="assets/images/user/avatar-1.jpg" alt="activity-user"></td> -->
+                                                            <td class = "col-6">
+                                                                <h6 class="mb-1">{{ key }}</h6>
+                                                                <!-- <p class="m-0">AI Model</p> -->
+                                                            </td>
+                                                            <td class = "col-5">
+                                                                <h6 class="text-muted"><i class="fas fa-circle text-c-green f-10 m-r-15"></i>11 MAY 12:56</h6>
+                                                            </td>
+                                                            <!-- <td><a href="#!" class="label theme-bg2 text-white f-12">Delete</a> -->
+                                                        </tr>
+                                                        <!-- <tr class="unread"> -->
+                                                            <!-- <td><img class="rounded-circle" style="width:40px;" src="assets/images/user/avatar-2.jpg" alt="activity-user"></td> -->
+                                                            <!-- <td>
+                                                                <h6 class="mb-1">Face Detection</h6>
+                                                                <p class="m-0">Nlp Model</p>
+                                                            </td>
+                                                            <td>
+                                                                <h6 class="text-muted"><i class="fas fa-circle text-c-red f-10 m-r-15"></i>11 MAY 10:35</h6>
+                                                            </td>
+                                                            <td><a href="#!" class="label theme-bg2 text-white f-12">Reject</a>
+                                                        </tr> -->
+                                                        {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="col-6">
+                                                <h4>Models</h4>
+                                                <table class="table table-hover col-6" >
+                                                    <tbody>
+                                                        {% for key in response %}
+        
+                                                        <tr class="unread row" style="padding:1em">
+                                                            <!-- <td><img class="rounded-circle" style="width:40px;" src="assets/images/user/avatar-1.jpg" alt="activity-user"></td> -->
+                                                            <td class = "col-6">
+                                                                <h6 class="mb-1">{{ key }}</h6>
+                                                                <!-- <p class="m-0">AI Model</p> -->
+                                                            </td>
+                                                            <td class = "col-5">
+                                                                <h6 class="text-muted"><i class="fas fa-circle text-c-green f-10 m-r-15"></i>11 MAY 12:56</h6>
+                                                            </td>
+                                                            <!-- <td><a href="#!" class="label theme-bg2 text-white f-12">Delete</a> -->
+                                                        </tr>
+                                                        <!-- <tr class="unread"> -->
+                                                            <!-- <td><img class="rounded-circle" style="width:40px;" src="assets/images/user/avatar-2.jpg" alt="activity-user"></td> -->
+                                                            <!-- <td>
+                                                                <h6 class="mb-1">Face Detection</h6>
+                                                                <p class="m-0">Nlp Model</p>
+                                                            </td>
+                                                            <td>
+                                                                <h6 class="text-muted"><i class="fas fa-circle text-c-red f-10 m-r-15"></i>11 MAY 10:35</h6>
+                                                            </td>
+                                                            <td><a href="#!" class="label theme-bg2 text-white f-12">Reject</a>
+                                                        </tr> -->
+                                                        {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+    <![endif]-->
+    <!-- Warning Section Ends -->
+
+    <!-- Required Js -->
+    
+
+   
+
+    <!-- Required Js -->
+
+	<script src="../static/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    
+
+</body>
+</html>

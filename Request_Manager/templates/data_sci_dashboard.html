@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Datta Able Free Bootstrap 4 Admin Template</title>
+    <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 11]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Free Datta Able Admin Template come up with latest Bootstrap 4 framework with basic components, form elements and lots of pre-made layout options" />
+    <meta name="keywords" content="admin templates, bootstrap admin templates, bootstrap 4, dashboard, dashboard templets, sass admin templets, html admin templates, responsive, bootstrap admin templates free download,premium bootstrap admin templates, datta able, datta able bootstrap admin template, free admin theme, free dashboard template"/>
+    <meta name="author" content="CodedThemes"/>
+
+    <!-- Favicon icon -->
+    <!-- <link rel="icon" href="../static/assets/images/favicon.ico" type="image/x-icon"> -->
+    <!-- fontawesome icon -->
+    <link rel="stylesheet" href="../static/assets/fonts/fontawesome/css/fontawesome-all.min.css">
+   
+    <!-- vendor css -->
+    <link rel="stylesheet" href="../static/assets/css/style.css">
+
+</head>
+
+<body>
+    <!-- [ Pre-loader ] start -->
+    <div class="loader-bg">
+        <div class="loader-track">
+            <div class="loader-fill"></div>
+        </div>
+    </div>
+    <!-- [ Header ] start -->
+    <header class="navbar pcoded-header navbar-expand-lg navbar-light">
+        <div class="m-header">
+            <a class="mobile-menu" id="mobile-collapse1" href="javascript:"><span></span></a>
+            <a href="index.html" class="b-brand">
+                   <div class="b-bg">
+                       <i class="feather icon-trending-up"></i>
+                   </div>
+                   <span class="b-title">Datta Able</span>
+               </a>
+        </div>
+
+        <a class="mobile-menu" id="mobile-header" href="javascript:">
+            <i class="feather icon-more-horizontal"></i>
+        </a>
+
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li><a href="javascript:" class="full-screen" onclick="javascript:toggleFullScreen()"><i class="feather icon-maximize"></i></a></li>
+                <li class="nav-item dropdown">
+                    <a class="dropdown-toggle" href="javascript:" data-toggle="dropdown">Dashboard</a>
+                    <!---
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="javascript:">Action</a></li>
+                        <li><a class="dropdown-item" href="javascript:">Another action</a></li>
+                        <li><a class="dropdown-item" href="javascript:">Something else here</a></li>
+                    </ul>
+                    --->
+                </li>
+              
+            </ul>
+
+        
+            
+        </div>
+        
+    </header>
+    <!-- [ Header ] end -->
+
+    
+
+    <!-- [ Main Content ] start -->
+    <div class="pcoded-main-container">
+        <div class="pcoded-wrapper">
+            <div class="pcoded-content row">
+                <div class="pcoded-inner-content col-9">
+                    <!-- [ breadcrumb ] start -->
+                    <p>Welcome {{ username }}</p>
+                    <div ><h3>Deploy New Model</h3></div>
+                    <hr>
+                    <div class="upload custom-file center" >
+                        <form class="form" action = "http://127.0.0.1:5000/submit" method = "POST" enctype = "multipart/form-data">
+                            <h3>Select role</h3>
+                            <select name="role" id="role" onchange="show(this)">
+                                <option value=""selected>Select One</option>
+                                <option value="Data Scientist" id="0">Data Scientist</option>
+                                <option value="App Developer" id="1">App Developer</option>
+                            </select>
+                            <div id = "ds" style="display: none;">
+                                <h3>Upload model.pkl file</h3>
+                                <input type = "file" name = "f1"/>
+                                <h3>Upload contract.py file</h3>
+                                <input type = "file" name = "f2"/>
+                                <h3>Upload config file</h3>
+                                <input type = "file" name = "f3"/>
+                                <br><br>
+                                <input class="btn btn-lg btn-success" type="submit" value="Submit">
+                            </div>
+                            <div id = "appd" style="display: none;">
+                                <h3>Upload all source files</h3>
+                                <input type = "file" name = "f4" />
+                                <h3>Upload contract.txt file</h3>
+                                <input type = "file" name = "f5" />
+                                <h3>Upload config file</h3>
+                                <input type = "file" name = "f6" />
+                                <br><br>
+                                <input class="btn btn-lg btn-success" type="submit" value="Submit">
+                            </div>
+                        </form>
+                        <form id="myForm" enctype = "multipart/form-data" action = "/Upload/Model" method = "post" >
+                            <div class="row align-items-end">
+                            <p class="col-7">Upload File: <input type = "file" name = "filename" required /></p>
+
+                            <input type="hidden" name="username" value="{{ username }}" />
+                             
+                            <p class="col-3"><input class="btn btn-primary" type = "submit" value = "Upload" /></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </br>
+        </br></br>  
+                <div class= "col-9">
+                    <hr>
+                    <!-- [ breadcrumb ] end -->
+                    <div class="main-body">
+                        <div class="page-wrapper">
+                            <!-- [ Main Content ] start -->
+                            <div class="row">
+                              
+                                <div class="col-12">
+                                    <div class="card Recent-Users">
+                                        <div class="">
+                                            <h3>Uploaded Models</h3>
+                                        </div>
+                                        
+                                        <div class="" >
+                                            <div class="table-responsive" style="overflow: hidden;">
+                                                <table class="table table-hover col-11" >
+                                                    <tbody>
+                                                        {% for key in response %}
+        
+                                                        <tr class="unread row" style="padding:1em">
+                                                            <!-- <td><img class="rounded-circle" style="width:40px;" src="assets/images/user/avatar-1.jpg" alt="activity-user"></td> -->
+                                                            <td class = "col-6">
+                                                                <h6 class="mb-1">{{ key }}</h6>
+                                                                <!-- <p class="m-0">AI Model</p> -->
+                                                            </td>
+                                                            <td class = "col-5">
+                                                                <h6 class="text-muted"><i class="fas fa-circle text-c-green f-10 m-r-15"></i>11 MAY 12:56</h6>
+                                                            </td>
+                                                            <!-- <td><a href="#!" class="label theme-bg2 text-white f-12">Delete</a> -->
+                                                        </tr>
+                                                        <!-- <tr class="unread"> -->
+                                                            <!-- <td><img class="rounded-circle" style="width:40px;" src="assets/images/user/avatar-2.jpg" alt="activity-user"></td> -->
+                                                            <!-- <td>
+                                                                <h6 class="mb-1">Face Detection</h6>
+                                                                <p class="m-0">Nlp Model</p>
+                                                            </td>
+                                                            <td>
+                                                                <h6 class="text-muted"><i class="fas fa-circle text-c-red f-10 m-r-15"></i>11 MAY 10:35</h6>
+                                                            </td>
+                                                            <td><a href="#!" class="label theme-bg2 text-white f-12">Reject</a>
+                                                        </tr> -->
+                                                        {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+    <![endif]-->
+    <!-- Warning Section Ends -->
+
+    <!-- Required Js -->
+
+	<script src="../static/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        function SelectAll() {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            console.log(checkboxes)
+            for (var checkbox of checkboxes) {
+              if(checkbox.name !== "repeat")
+                checkbox.checked = true;
+            }
+        }
+    </script>
+    <script>
+        function show(select)
+        {
+            var r = select.options[select.selectedIndex].getAttribute("id")
+            if(r=="0")
+            {
+                document.getElementById('ds').style.display = 'block';
+                document.getElementById('appd').style.display = 'none';
+            }
+            else
+            {
+                document.getElementById('appd').style.display = 'block';
+                document.getElementById('ds').style.display = 'none';
+            }
+        }
+    </script>
+    <script>
+        $('#myForm').submit(function () {
+        sendContactForm();
+        return false;
+        });
+    </script>
+
+</body>
+</html>

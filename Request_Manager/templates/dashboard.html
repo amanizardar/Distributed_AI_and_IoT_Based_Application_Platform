@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AI Platform</title>
+
+    
+    <meta charset="utf-8" />
+    
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+      
+    <!-- vendor css -->
+    <link rel="stylesheet" href="../static/assets/css/style.css" />
+   <style>
+    .container {
+      position: relative;
+      max-width: 50rem;
+      margin: 5rem auto;
+      background: #fff;
+    
+      width: 100%;
+      padding: 3rem 2rem 0;
+      border-radius: 1px;
+      padding-bottom: 3rem;
+    }
+    .container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+      -webkit-transform: scale(0.98);
+              transform: scale(0.98);
+      -webkit-transition: -webkit-transform 0.28s ease-in-out;
+      transition: -webkit-transform 0.28s ease-in-out;
+      transition: transform 0.28s ease-in-out;
+      transition: transform 0.28s ease-in-out, -webkit-transform 0.28s ease-in-out;
+      z-index: -1;
+    }
+    .container:hover::before {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+    #appd2{
+      margin: 5rem auto;
+    }
+  </style> 
+  </head>
+
+
+  <style>
+    .but {
+        display: inline-block;
+        padding: 15px 25px;
+        font-size: 24px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        background-color: #4CAF50;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 9px #999;
+      }
+
+      .but:hover {background-color: #3e8e41}
+
+      .but:active {
+        background-color: #3e8e41;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+      }
+  </style>
+  <body>
+    <!-- [ Pre-loader ] start -->
+    <div class="loader-bg">
+      <div class="loader-track">
+        <div class="loader-fill"></div>
+      </div>
+    </div>
+
+    <!-- [ Header ] start -->
+   
+    <!-- [ Header ] end -->
+
+    <!-- [ Main Content ] start -->
+    <!-- <div class="pcoded-main-container"> -->
+      <div class=container>
+        <div class="pcoded-wrapper">
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Navbar brand -->
+      <!-- <a class="navbar-brand mt-2 mt-lg-0" href="#">
+        <img
+          src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
+          height="15"
+          alt="MDB Logo"
+          loading="lazy"
+        />
+      </a> -->
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link"  href="{{ url_for('logout') }}">LOGOUT</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="#">Team</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Projects</a>
+        </li> -->
+      </ul>
+      <!-- Left links -->
+    </div>
+    <!-- Collapsible wrapper -->
+
+    <!-- Right elements -->
+    <!-- <div class="d-flex align-items-center">
+      <Icon -->
+      <!-- <a class="text-reset me-3" href="#">
+        <i class="fas fa-shopping-cart"></i>
+      </a> -->
+
+      <!-- Notifications -->
+      <!-- <div class="dropdown">
+        <a
+          class="text-reset me-3 dropdown-toggle hidden-arrow"
+          href="#"
+          id="navbarDropdownMenuLink"
+          role="button"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <i class="fas fa-bell"></i>
+          <span class="badge rounded-pill badge-notification bg-danger">1</span>
+        </a>
+        <ul
+          class="dropdown-menu dropdown-menu-end"
+          aria-labelledby="navbarDropdownMenuLink"
+        >
+          <li>
+            <a class="dropdown-item" href="#">Some news</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Another news</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </li>
+        </ul>
+      </div> -->
+      <!-- Avatar -->
+      <!-- <div class="dropdown">
+        <a
+          class="dropdown-toggle d-flex align-items-center hidden-arrow"
+          href="#"
+          id="navbarDropdownMenuAvatar"
+          role="button"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <img
+            src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+            class="rounded-circle"
+            height="25"
+            alt="Black and White Portrait of a Man"
+            loading="lazy"
+          />
+        </a>
+        <ul
+          class="dropdown-menu dropdown-menu-end"
+          aria-labelledby="navbarDropdownMenuAvatar"
+        > -->
+          <!-- <li>
+            <a class="dropdown-item" href="#">My profile</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Settings</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div> -->
+    <!-- Right elements -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
+          <div class="pcoded-content row">
+            <div class="pcoded-inner-content col-12">
+              <!-- [ breadcrumb ] start -->
+              <p>Welcome {{ username }}</p>
+              <div class = "row">
+              <div id = "ds1001" class = "col-9"><h3>Deploy New Model</h3></div>
+              <div id = "appd1001" class = "col-9"><h3>Deploy New App</h3></div>
+              <div class = "col-3">
+              <a id= "ds3"  href="https://filetransfer.io/data-package/1NNBwwK8/download" download="contract.json" target="_blank">Download Contract</a>
+              <a id ="appd4"  href="https://filetransfer.io/data-package/LUCA4IzX/download" download="contract.json" target="_blank">Download Contract</a>
+             </div>
+             </div>
+              <hr />
+              <div class="upload custom-file center">
+                <form
+                  class="form"
+                  action="/Upload/{{user_type}}"
+                  method="POST"
+                  enctype="multipart/form-data"
+                >
+                  <!-- <h3>Select role</h3>
+                              <select class="row" name="role" id="role" onchange="show(this)">
+                                  <option value=""selected>Select One</option>
+                                  <option value="Data Scientist" id="0">Data Scientist</option>
+                                  <option value="App Developer" id="1">App Developer</option>
+                              </select> -->
+                  <div class="row" id="ds1" style="display: none">
+                    <div class="row">
+                      <h3 class="col-6">Upload model.pkl file</h3>
+                      <input class="col-5" type="file" name="f1" />
+                    </div>
+
+                    <div class="row">
+                      <h3 class="col-6">Upload contract.py file</h3>
+                      <input class="col-5" type="file" name="f2" />
+                    </div>
+                    <div class="row">
+                      <h3 class="col-6">Upload config file</h3>
+                      <input class="col-5" type="file" name="f3" />
+                    </div>
+                    <br /><br />
+                    <input
+                      class="btn btn-lg btn-success"
+                      type="submit"
+                      value="Submit"
+                    />
+                  </div>
+                  <div id="appd1" style="display: none">
+                    <div class="row">
+                      <h3 class="col-6">Upload all source files</h3>
+                      <input class="col-5" type="file" name="f4" />
+                    </div>
+
+                    <div class="row">
+                      <h3 class="col-6">Upload contract.txt file</h3>
+                      <input class="col-5" type="file" name="f5" />
+                    </div>
+
+                    <div class="row">
+                      <h3 class="col-6">Upload config file</h3>
+                      <input class="col-5" type="file" name="f6" />
+                    </div>
+
+                    <br /><br />
+                    <input
+                      class="btn btn-lg btn-success"
+                      type="submit"
+                      value="Submit"
+                    />
+                  </div>
+                </form>
+                <!-- <form id="myForm" enctype = "multipart/form-data" action = "/Upload/Model" method = "post" >
+                              <div class="row align-items-end">
+                              <p class="col-7">Upload File: <input type = "file" name = "filename" required /></p>
+
+                              <input type="hidden" name="username" value="{{ username }}" />
+                              
+                              <p class="col-3"><input class="btn btn-primary" type = "submit" value = "Upload" /></p>
+                              </div>
+                          </form> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm" id="appd2" style:"50%">
+          <hr />
+          <!-- [ breadcrumb ] end -->
+          <!-- <div class="main-body"> -->
+            <!-- <div class="page-wrapper"> -->
+              <!-- [ Main Content ] start -->
+              <div class="row">
+                <td class="col-6">
+                  <div class="">
+                    
+  
+                    <div class="row">
+                      
+                      <div class="col-6 table-responsive" style="overflow: hidden">
+                        <div class="">
+                          <h3>Uploaded Models</h3>
+                          <!-- <p>hello</p> -->
+                        </div>
+                        <table class="table table-light table-striped ">
+                          <tbody>
+                              <!-- <p>Bad</p> -->
+                              <!-- {{all_model_list}} -->
+                            {% for key in all_model_list %}
+            
+                            <tr class="table table-light table-striped" style="padding: 1em">
+                              <!-- <td><img class="rounded-circle" style="width:40px;" src="assets/images/user/avatar-1.jpg" alt="activity-user"></td> -->
+                              <td class="col">
+                                <h6 class="mb-1">{{ key.model }}</h6>
+                                <!-- <p class="m-0">AI Model</p> -->
+                              </td>
+                              <!-- <td class = "col-5">
+                                                                    <h6 class="text-muted"><i class="fas fa-circle text-c-green f-10 m-r-15"></i>11 MAY 12:56</h6>
+                                                                </td> -->
+                              <!-- <td><a href="#!" class="label theme-bg2 text-white f-12">Delete</a> -->
+                            </tr>
+                            <!-- <tr class="unread"> -->
+                            <!-- <td><img class="rounded-circle" style="width:40px;" src="assets/images/user/avatar-2.jpg" alt="activity-user"></td> -->
+                            <!-- <td>
+                                                                    <h6 class="mb-1">Face Detection</h6>
+                                                                    <p class="m-0">Nlp Model</p>
+                                                                </td>
+                                                                <td>
+                                                                    <h6 class="text-muted"><i class="fas fa-circle text-c-red f-10 m-r-15"></i>11 MAY 10:35</h6>
+                                                                </td>
+                                                                <td><a href="#!" class="label theme-bg2 text-white f-12">Reject</a>
+                                                            </tr> -->
+                            {% endfor %}
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="col-6 table-responsive" style="overflow: hidden">
+                        <div class="">
+                          <h3>Available sensors</h3>
+                          <!-- <p>hello</p> -->
+                        </div>
+                        <table class="table table-light table-striped col-11">
+                          <tbody>
+                              <!-- <p>Bad</p> -->
+                              <!-- {{all_model_list}} -->
+                            {% for key in sensor_list %}
+            
+                            <tr class="table table-light table-striped" style="padding: 1em">
+                              <!-- <td><img class="rounded-circle" style="width:40px;" src="assets/images/user/avatar-1.jpg" alt="activity-user"></td> -->
+                              <td class="col">
+                                <h6 class="mb-1">{{ key.type }}</h6>
+                                <!-- <p class="m-0">AI Model</p> -->
+                              </td>
+                              <!-- <td class = "col-5">
+                                                                    <h6 class="text-muted"><i class="fas fa-circle text-c-green f-10 m-r-15"></i>11 MAY 12:56</h6>
+                                                                </td> -->
+                              <!-- <td><a href="#!" class="label theme-bg2 text-white f-12">Delete</a> -->
+                            </tr>
+                            <!-- <tr class="unread"> -->
+                            <!-- <td><img class="rounded-circle" style="width:40px;" src="assets/images/user/avatar-2.jpg" alt="activity-user"></td> -->
+                            <!-- <td>
+                                                                    <h6 class="mb-1">Face Detection</h6>
+                                                                    <p class="m-0">Nlp Model</p>
+                                                                </td>
+                                                                <td>
+                                                                    <h6 class="text-muted"><i class="fas fa-circle text-c-red f-10 m-r-15"></i>11 MAY 10:35</h6>
+                                                                </td>
+                                                                <td><a href="#!" class="label theme-bg2 text-white f-12">Reject</a>
+                                                            </tr> -->
+                            {% endfor %}
+                          </tbody>
+                        </table>
+                      </div>
+                    <!-- </div>
+                  </div> -->
+                </div>
+              <!-- </div> -->
+            <!-- </div> -->
+          </div>
+        </div>
+      
+      </div>
+      <div class="col-sm" id="ds2">
+        <hr />
+        <!-- [ breadcrumb ] end -->
+        <div class="main-body">
+          <div class="page-wrapper">
+            <!-- [ Main Content ] start -->
+            <div class="row">
+              <td class="col-6">
+                <div class="">
+                  <div class="">
+                    <h3>Uploaded Models</h3>
+                    <!-- <p>hello</p> -->
+                  </div>
+  
+                  <div class="">
+                    <div class="table-responsive" style="overflow: hidden">
+                      <table class="table table-light table-striped col-11">
+                        <tbody>
+                            <!-- <p>Bad</p> -->
+                            <!-- {{all_model_list}} -->
+                          {% for key in ds_model_list %}
+          
+                          <tr class="utable table-light table-striped" style="padding: 1em">
+                            <!-- <td><img class="rounded-circle" style="width:40px;" src="assets/images/user/avatar-1.jpg" alt="activity-user"></td> -->
+                            <td class="col">
+                              <h6 class="mb-1">{{ key.model }}</h6>
+                              <!-- <p class="m-0">AI Model</p> -->
+                            </td>
+                            <!-- <td class = "col-5">
+                                                                  <h6 class="text-muted"><i class="fas fa-circle text-c-green f-10 m-r-15"></i>11 MAY 12:56</h6>
+                                                              </td> -->
+                            <!-- <td><a href="#!" class="label theme-bg2 text-white f-12">Delete</a> -->
+                          </tr>
+                          <!-- <tr class="unread"> -->
+                          <!-- <td><img class="rounded-circle" style="width:40px;" src="assets/images/user/avatar-2.jpg" alt="activity-user"></td> -->
+                          <!-- <td>
+                                                                  <h6 class="mb-1">Face Detection</h6>
+                                                                  <p class="m-0">Nlp Model</p>
+                                                              </td>
+                                                              <td>
+                                                                  <h6 class="text-muted"><i class="fas fa-circle text-c-red f-10 m-r-15"></i>11 MAY 10:35</h6>
+                                                              </td>
+                                                              <td><a href="#!" class="label theme-bg2 text-white f-12">Reject</a>
+                                                          </tr> -->
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- </div> -->
+    
+    
+  </div>
+    <div class="col-sm" id="appd3">
+        <hr />
+        <!-- [ breadcrumb ] end -->
+        <div class="main-body">
+          <div class="page-wrapper">
+            <!-- [ Main Content ] start -->
+            <div class="row">
+              <td class="col-6">
+                <div class="">
+                  
+  
+                  <div class="">
+                   
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+      
+      
+      
+      <!-- <iframe src="almanac.pdf" title="desc"></iframe> -->
+      <!-- <button
+      disabled={fetching} onClick={()=> download(url, filename)}    
+      aria-label="download gif">
+    
+      DOWNLOAD
+    </button> -->
+
+    <!-- Warning Section Ends -->
+
+    <!-- Required Js -->
+
+    <!--  -->
+     
+   
+    <script>
+      function SelectAll() {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        console.log(checkboxes);
+        for (var checkbox of checkboxes) {
+          if (checkbox.name !== "repeat") checkbox.checked = true;
+        }
+      }
+    </script>
+    <script>
+      var r = "{{ user_type }}";
+      console.log(r);
+      if (r == "Data_Scientist") {
+        document.getElementById("ds1").style.display = "block";
+        document.getElementById("ds2").style.display = "block";
+        document.getElementById("appd1").style.display = "none";
+        document.getElementById("appd2").style.display = "none";
+        document.getElementById("appd3").style.display = "none";
+        document.getElementById("appd4").style.display = "none";
+        document.getElementById("appd1001").style.display = "none";
+        document.getElementById("ds1001").style.display = "block";
+        document.getElementById("ds3").style.display = "block";
+      } else {
+        document.getElementById("appd1").style.display = "block";
+        document.getElementById("appd2").style.display = "block";
+        document.getElementById("appd3").style.display = "block";
+        document.getElementById("appd4").style.display = "block";
+        document.getElementById("ds1").style.display = "none";
+        document.getElementById("ds2").style.display = "none";
+        document.getElementById("ds3").style.display = "none";
+        document.getElementById("appd1001").style.display = "block";
+        document.getElementById("ds1001").style.display = "none";
+      }
+    </script>
+    <!-- <script>
+      $("#myForm").submit(function () {
+        sendContactForm();
+        return false;
+      });
+    </script> -->
+  </body>
+</html>

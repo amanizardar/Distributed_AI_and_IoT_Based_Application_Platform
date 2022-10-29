@@ -1,0 +1,293 @@
+<!-- <link rel="stylesheet" href="app_sensor.css" type="text/css"> -->
+<!DOCTYPE html>
+<html>
+<style>
+  @import url(https://fonts.googleapis.com/css?family=Roboto);
+
+  body,
+  input,
+  select,
+  textarea,
+  body * {
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+  }
+
+  body::after,
+  body::before,
+  input::after,
+  input::before,
+  select::after,
+  select::before,
+  textarea::after,
+  textarea::before,
+  body *::after,
+  body *::before {
+    box-sizing: border-box;
+  }
+
+  body {
+    /* background-image: -webkit-linear-gradient(top, #326ae2, #e6e6e6);
+    background-image: linear-gradient(top, #f2f2f2, #e6e6e6); */
+    background-image: url(https://www.nicepng.com/png/detail/48-481155_clipart-royalty-free-technology-pattern-png-for-free.png);
+    background-size: fixed;
+    background-color: rgb(120, 138, 238);
+  }
+
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin: 0 0 2em;
+  }
+  h3 {
+    text-align: center;
+  }
+  .container1 {
+    position: relative;
+    max-width: 40rem;
+    margin: 5rem auto;
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    padding: 3rem 5rem 0;
+    border-radius: 1px;
+  }
+
+  .container1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+    -webkit-transform: scale(0.98);
+    transform: scale(0.98);
+    -webkit-transition: -webkit-transform 0.28s ease-in-out;
+    transition: -webkit-transform 0.28s ease-in-out;
+    transition: transform 0.28s ease-in-out;
+    transition: transform 0.28s ease-in-out, -webkit-transform 0.28s ease-in-out;
+    z-index: -1;
+  }
+
+  .container1:hover::before {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  .button-container1 {
+    text-align: center;
+  }
+
+  fieldset {
+    margin: 0 0 3rem;
+    padding: 0;
+    border: none;
+  }
+
+  .form-radio,
+  .form-group1 {
+    position: relative;
+    margin-top: 2.25rem;
+    margin-bottom: 2.25rem;
+  }
+
+  .form-inline>.form-group1,
+  .form-inline>.btn {
+    display: inline-block;
+    margin-bottom: 0;
+  }
+
+  .form-help {
+    margin-top: 0.125rem;
+    margin-left: 0.125rem;
+    color: #b3b3b3;
+    font-size: 0.8rem;
+  }
+
+
+  .form-group1 input[type="file"] {
+    line-height: 1;
+  }
+
+  .form-group1 input[type="file"]~.bar {
+    display: none;
+  }
+
+  .form-group1 select,
+  .form-group1 input:focus,
+  .form-group1 input:valid,
+  .form-group1 input.form-file,
+  .form-group1 input.has-value,
+  .form-group1 textarea:focus,
+  .form-group1 textarea:valid,
+  .form-group1 textarea.form-file,
+  .form-group1 textarea.has-value {
+    color: #333;
+  }
+
+  .form-group1 select~.control-label,
+  .form-group1 input:focus~.control-label,
+  .form-group1 input:valid~.control-label,
+  .form-group1 input.form-file~.control-label,
+  .form-group1 input.has-value~.control-label,
+  .form-group1 textarea:focus~.control-label,
+  .form-group1 textarea:valid~.control-label,
+  .form-group1 textarea.form-file~.control-label,
+  .form-group1 textarea.has-value~.control-label {
+    font-size: 0.8rem;
+    color: gray;
+    top: -1rem;
+    left: 0;
+  }
+
+  .form-group1 select:focus,
+  .form-group1 input:focus,
+  .form-group1 textarea:focus {
+    outline: none;
+  }
+
+  .form-group1 select:focus~.control-label,
+  .form-group1 input:focus~.control-label,
+  .form-group1 textarea:focus~.control-label {
+    color: #337ab7;
+  }
+
+  .form-group1 select:focus~.bar::before,
+  .form-group1 input:focus~.bar::before,
+  .form-group1 textarea:focus~.bar::before {
+    width: 100%;
+    left: 0;
+  }
+
+
+  .has-error .legend.legend,
+  .has-error.form-group11 .control-label.control-label {
+    color: #d9534f;
+  }
+
+  .has-error.form-group1 .form-help,
+  .has-error.form-group1 .helper,
+  .has-error.checkbox .form-help,
+  .has-error.checkbox .helper,
+  .has-error.radio .form-help,
+  .has-error.radio .helper,
+  .has-error.form-radio .form-help,
+  .has-error.form-radio .helper {
+    color: #d9534f;
+  }
+
+  .has-error .bar::before {
+    background: #d9534f;
+    left: 0;
+    width: 100%;
+  }
+
+  .button {
+    position: relative;
+    background: currentColor;
+    border: 1px solid currentColor;
+    font-size: 1.1rem;
+    color: #4f93ce;
+    margin: 3rem 0;
+    padding: 0.75rem 3rem;
+    cursor: pointer;
+    -webkit-transition: background-color 0.28s ease, color 0.28s ease, box-shadow 0.28s ease;
+    transition: background-color 0.28s ease, color 0.28s ease, box-shadow 0.28s ease;
+    overflow: hidden;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  }
+
+  .button span {
+    color: #fff;
+    position: relative;
+    z-index: 1;
+  }
+
+  .button::before {
+    content: '';
+    position: absolute;
+    background: #071017;
+    border: 50vh solid #1d4567;
+    width: 30vh;
+    height: 30vh;
+    border-radius: 50%;
+    display: block;
+    top: 50%;
+    left: 50%;
+    z-index: 0;
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) scale(0);
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  .button:hover {
+    color: #337ab7;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
+  }
+
+  .button:active::before,
+  .button:focus::before {
+    -webkit-transition: opacity 0.28s ease 0.364s, -webkit-transform 1.12s ease;
+    transition: opacity 0.28s ease 0.364s, -webkit-transform 1.12s ease;
+    transition: transform 1.12s ease, opacity 0.28s ease 0.364s;
+    transition: transform 1.12s ease, opacity 0.28s ease 0.364s, -webkit-transform 1.12s ease;
+    -webkit-transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+
+  .button:focus {
+    outline: none;
+  }
+</style>
+
+<head>
+  <title>{{title}}</title>
+  <meta charset="utf-8" />
+  <meta name="description" content="{{description}}" />
+  <!-- <link rel="shortcut icon" href="/favicon.ico" /> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class= "container1">
+  {% if error != '' %}
+  <div class="alert alert-danger" role="alert">
+    {{error}}
+  </div>
+    <form>
+      <input type="hidden" name="given_app_id" value="{{given_app_id}}">
+      <input type="hidden" name="sensor_kinds" value="{{sensor_kinds}}">
+      <input type="hidden" name="sensor_count" value="{{sensor_count}}">
+    </form>
+  
+  {% endif %}
+  <form action="{{URL}}/jsonifyRequest" method="post">
+    {% for i in range(sensor_kinds|length) %} {% for j in
+    range(sensor_count[i]) %} {% set n = '' + sensor_kinds[i] + '_' + (j|string) %}
+    <div class="form-group1">
+    <label>{{n}} location</label>
+    <br />
+    <input type="text" name="{{n}}" />
+
+    <!-- trying to send app id-->
+    <input type="hidden" name="username" value="{{username}}">  
+    <input type="hidden" name="given_app_id" value="{{given_app_id}}">
+    <input type="hidden" name="sensor_kinds" value="{{sensor_kinds}}">
+    <input type="hidden" name="sensor_count" value="{{sensor_count}}">
+    <br />
+    <br />
+  </div> 
+    {% endfor %} {% endfor %}
+    
+    <div class="button-container">
+      <button type="submit" class="button"><span>Submit</span></button>
+    </div>
+ 
+  </form>  
+  </div>  
+</body>
+
+</html>
